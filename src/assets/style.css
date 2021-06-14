@@ -1,0 +1,162 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body,
+section.section,
+section.section .container,
+section.section .container .columns,
+section.section .container .columns .column {
+  min-height: 320px;
+  /* height: 100%; */
+}
+body {
+  font: 13px Helvetica, Arial;
+}
+form {
+  background: #000;
+  padding: 3px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+form input {
+  border: 0;
+  padding: 10px;
+  width: 90%;
+  margin-right: 0.5%;
+}
+form button {
+  width: 9%;
+  background: rgb(27, 103, 107);
+  border: none;
+  padding: 10px;
+}
+#messages {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+#messages li {
+  padding: 5px 10px;
+}
+#messages li:nth-child(odd) {
+  background: #eee;
+}
+/* addditional css */
+.add-control {
+  flex: 1 0 auto;
+}
+.add-column {
+  position: relative;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+.field.has-addons {
+  left: 10px;
+  right: 10px;
+  position: absolute;
+  bottom: 10px;
+}
+.add-columns,
+.add-columns .column {
+  height: unset !important ;
+  min-height: unset !important;
+}
+.add-columns .column {
+  max-width: 30ch;
+}
+.navigation#simpleNavbar {
+  display: flex;
+  width: 100%;
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+.navigation#simpleNavbar div {
+  flex: 1 0 auto;
+}
+#msgContainer {
+  line-height: 1.5;
+  margin-bottom: 3rem;
+}
+#notification {
+  position: fixed;
+  bottom: 40px;
+  left: 40px;
+  display: none;
+}
+#simpleNavbar {
+  display: none;
+}
+#modal-bis .modal-content {
+  overflow: unset;
+}
+#modal-bis .column {
+  text-align: center;
+}
+.field .control .msg {
+  padding: 4px 8px;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+}
+.control.custom {
+  max-width: 70%;
+}
+.field.has-text-right .control.custom {
+  margin: 0px 0px 0px auto;
+}
+@media (max-width: 768px) {
+  .section.hero.chat {
+    padding: 0px;
+  }
+}
+/* from mozilla-cdn */
+#video {
+  border: 1px solid black;
+  box-shadow: 2px 2px 3px black;
+  width: 320px;
+  height: 240px;
+}
+
+#photo {
+  border: 1px solid black;
+  box-shadow: 2px 2px 3px black;
+  width: 320px;
+  height: 240px;
+}
+
+#canvas {
+  display: none;
+}
+
+.camera {
+  width: 340px;
+  display: inline-block;
+}
+
+.output {
+  width: 340px;
+  display: inline-block;
+}
+
+#startbutton {
+  display: block;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  bottom: 32px;
+  /* background-color: rgba(0, 150, 0, 0.5); */
+  /* border: 1px solid rgba(255, 255, 255, 0.7); */
+  /* box-shadow: 0px 0px 1px 2px rgba(0, 0, 0, 0.2); */
+  /* font-size: 14px; */
+  /* font-family: "Lucida Grande", "Arial", sans-serif; */
+  /* color: rgba(255, 255, 255, 1.0); */
+}

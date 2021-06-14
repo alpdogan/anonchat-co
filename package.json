@@ -1,0 +1,25 @@
+{
+  "name": "chat-app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "webpack --watch",
+    "prebuild": "yarn preserver",
+    "build": "webpack -p",
+    "heroku-postbuild": "yarn && yarn build",
+    "start": "node src/index.js",
+    "preserver": "mkdir -p build && cp -r src/assets/* build/",
+    "server": "nodemon src/index.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "node-cache": "^5.1.2",
+    "socket.io": "^2.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12"
+  }
+}

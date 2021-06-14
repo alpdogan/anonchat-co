@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <meta name="description" content="Anonymous Chat with Strangers " />
+    <title>Anonymous chat App</title>
+    <link rel="stylesheet" href="bulma.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="fontawesome.min.js"></script>
+  </head>
+  <body>
+    <section class="section hero is-fullheight is-info" id="landingPage">
+      <div class="hero-body">
+        <div class="container has-text-centered">
+          <div class="title is-3 has-text-centered is-spaced">
+            Pair programming
+          </div>
+          <p class="subtitle is-5 is-spaced">
+            Please Enter your contract
+          </p>
+          <div class="field">
+            <div class="control">
+              <button class="button is-link" id="overlayBtn">Connect</button>
+            </div>
+          </div>
+          <div class="field">
+            <div class="control">
+              <input type="text" class="input" placeholder="0x...." required id="name" readonly/>
+            </div>
+          </div>
+          <div class="is-danger" style="display: none; color: red;" id="info">
+            <span class="span">Name Already Taken</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section hero is-fullheight has-background-grey-light chat" id="mainPage" style="display: none;">
+      <div class="hero-body">
+        <div class="container">
+          <div class="columns">
+            <div
+              class="column is-6-desktop is-8-tablet is-offset-3-desktop is-offset-2-tablet has-background-grey-lighter add-column"
+            >
+              <div class="navigation" id="simpleNavbar">
+                <div style="text-align: left;"><a class="button is-danger" id="exitBtn">Exit</a></div>
+                <div style="text-align: right;"><a class="button is-success" id="nextBtn">Next</a></div>
+              </div>
+
+              <div class="subtitle is-5 has-text-centered is-spaced">Hello <strong id="subtitle">Aman.</strong></div>
+              <div class="subtitle has-text-centered">
+                Congrats. You are connected to <strong id="otherUser">Name</strong>
+              </div>
+              <div class="subtitle has-text-centered" id="timer"></div>
+              <div id="msgContainer">
+                <div class="columns">
+                  <div class="column">
+                    <!-- <div class="field has-text-left">
+                      <div class="control custom">
+                        <span class="msg has-background-white">HI</span>
+                      </div>
+                    </div>
+                    <div class="field has-text-left">
+                      <div class="control custom">
+                        <span class="msg has-background-white">How are you</span>
+                      </div>
+                    </div>
+                    <div class="field has-text-right">
+                      <div class="control custom">
+                        <span class="msg has-background-white">HI</span>
+                      </div>
+                    </div> -->
+                  </div>
+                </div>
+              </div>
+              <div class="field has-addons">
+                <div class="control add-control has-icons-right">
+                  <input id="inputText" type="text" class="input" placeholder="Type Message Here" required />
+                  <span
+                    class="icon is-medium has-text-link is-right"
+                    id="cameraBtn"
+                    style="pointer-events: auto; cursor: pointer;"
+                    ><i class="fas fa-camera"></i
+                  ></span>
+                </div>
+                <div class="control">
+                  <button class="button is-link" id="btnSend">Send</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="notification" id="notification">
+      <button class="delete" id="close_btn"></button>
+      <div></div>
+    </div>
+    <p style="position: fixed; bottom: 10px; left: 10px;" id="onlineCount">
+      Users :
+    </p>
+    <div class="modal" id="modal">
+      <div class="modal-background"></div>
+      <div class="modal-content">
+        <div class="box">
+          <h3 class="title is-4 is-spaced has-text-centered">Finding Partner...</h3>
+          <progress class="progress" max="100">15%</progress>
+        </div>
+      </div>
+    </div>
+    <div class="modal" id="modal-bis">
+      <div class="modal-background has-background-grey-lighter"></div>
+      <div class="modal-content">
+        <div class="columns">
+          <div class="column">
+            <div class="camera">
+              <video id="video">Video stream not available.</video>
+              <button id="startbutton" class="button is-primary is-rounded">Take photo</button>
+              <div class="field">
+                <div class="control">
+                  <div class="select">
+                    <select id="availableCameras"></select>
+                  </div>
+                </div>
+              </div>
+              <div class="field">
+                <div class="control">
+                  <button class="button is-info" id="imageBtn">Send</button>
+                </div>
+              </div>
+            </div>
+            <canvas id="canvas"> </canvas>
+          </div>
+          <div class="column">
+            <div class="output">
+              <img id="photo" alt="The screen capture will appear in this box." />
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="modal-close is-large" aria-label="close" id="modal-bis-close-btn"></button>
+    </div>
+    <div class="modal" id="modal-tris">
+      <div class="modal-background"></div>
+      <div class="modal-content">
+        <div class="box">
+          <h3 class="title is-4 is-spaced has-text-centered">Are you sure you want to exit this page?</h3>
+          <button class="button is-danger" id="exit">Yes</button>
+          <button class="button" id="cancel-exit">Cancel</button>
+        </div>
+      </div>
+    </div>
+    <div class="modal" id="modal-quar">
+      <div class="modal-background"></div>
+      <div class="modal-content">
+        <div class="box">
+          <h3 class="title is-4 is-spaced has-text-centered">Are you sure you want to leave this page?</h3>
+          <button class="button is-danger" id="next">Yes</button>
+          <button class="button" id="cancel-next">Cancel</button>
+        </div>
+      </div>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/bundle.js"></script>
+  </body>
+</html>
