@@ -17,21 +17,11 @@
     margin-bottom: 10px;
   }
   & .enter-form {
-    & form {
-      display: flex;
-      align-items: center;
-      justify-content: space-evenly;
-      & input {
-        height: 40px;
-        width: 460px;
-        border-radius: 5px;
-        padding: 0 7px;
-        border: 1px solid #B8B8B8; 
-        display: block;
-      }
-      & button {
-        margin-top: 15px;
-      }
+    display: flex;
+    justify-content: space-around;
+    flex-flow: wrap;
+    & button {
+      margin-top: 15px;
     }
   }
   & .enter-footer {
