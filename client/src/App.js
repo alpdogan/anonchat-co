@@ -203,7 +203,7 @@ const App = () => {
   return (
     <Grid fluid>
       <Row>
-        <Col xs={12}>
+        <Col xs={12} lg={6}>
           {user.username.trim() !== '' && user.isLoggedIn ? 
             <ChatBox user={user} /> 
             : <EnterChat
@@ -223,10 +223,8 @@ const App = () => {
               });
             }} />}
         </Col>
-      </Row>
-      <Row>
-        <Col xs={12}>
-          {showExchange && <iframe style={{width: '100%', height: '100vh', border: '0px'}} src={window.BUY_URL} />}
+        <Col xs={12} lg={6}>
+          <iframe style={{display: showExchange ? 'block' : 'none', width: '100%', height: '100vh', border: '0px'}} src={window.BUY_URL} />
         </Col>
       </Row>
     </Grid>
