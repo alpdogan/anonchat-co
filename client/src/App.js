@@ -1,4 +1,4 @@
-import React, { useState, createContext } from 'react';
+import React, { useState, createContext, useEffect } from 'react';
 import io from 'socket.io-client'
 import { Grid, Row, Col } from "react-flexbox-grid"
 import EnterChat from './components/EnterChat/EnterChat'
@@ -7,6 +7,15 @@ import Web3Modal from "web3modal";
 import WalletConnectProvider from "@walletconnect/web3-provider";
 import etherHelper from "./helpers/ether_helper";
 import WalletHelper from "./helpers/walletHelper";
+
+import styled, { keyframes } from 'styled-components';
+import { bounce } from 'react-animations';
+
+const bounceAnimation = keyframes`${bounce}`;
+
+const BouncyDiv = styled.div`
+  animation: 5s ${bounceAnimation};
+`;
 
 
 const socket = io()
@@ -197,15 +206,29 @@ window.web3Modal = new Web3Modal({
   providerOptions,
 });
 
+const renderExchange = () => {
+  return <iframe style={{ width: '100%', height: '100vh', border: '0px', backgroundColor: 'rgb(237 234 244)'}} src={window.BUY_URL} />
+}
+
 const App = () => {
   const [user, setUser] = React.useState({ username: '', addr: '', isLoggedIn: false })
   const [showExchange, setShowExchange] = useState(false);
+
+  useEffect(() => {
+    var interval = setInterval(() => {
+      if(showExchange)
+      {
+        setShowExchange(false);
+        clearInterval(interval);
+      }
+    }, 5000);
+  },[showExchange, setShowExchange])
   return (
     <Grid fluid>
       <Row>
         <Col xs={12} lg={6}>
           {user.username.trim() !== '' && user.isLoggedIn ? 
-            <ChatBox user={user} /> 
+            <ChatBox user={user} buy={() => setShowExchange(true)} /> 
             : <EnterChat
                buy={() => setShowExchange(true)}
                connect={() => {
@@ -224,7 +247,16 @@ const App = () => {
             }} />}
         </Col>
         <Col xs={12} lg={6}>
-          <iframe style={{display: showExchange ? 'block' : 'none', width: '100%', height: '100vh', border: '0px'}} src={window.BUY_URL} />
+          {showExchange ? 
+            <BouncyDiv>
+              {renderExchange()}
+            </BouncyDiv>
+            :
+            <div>
+              {renderExchange()}
+            </div>
+          }
+
         </Col>
       </Row>
     </Grid>

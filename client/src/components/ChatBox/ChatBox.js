@@ -6,7 +6,7 @@ import ChatContent from './ChatContent/ChatContent'
 import ChatInput from "./ChatInput/ChatInput"
 import './ChatBox.scss'
 
-const ChatBox = ({ user }) => {
+const ChatBox = ({ user, buy }) => {
   const [online, setOnline] = React.useState(0)
   const [inputMessage, setInputMessage] = React.useState('')
   const [messages, setMessages] = React.useState([])
@@ -47,7 +47,7 @@ const ChatBox = ({ user }) => {
 
   return (
     <div className="chat">
-      <Header />
+      <Header buy={buy}/>
       <ChatOnline online={online} />
       <ChatContent chatContentElement={chatContentElement} messages={messages} />
       <ChatInput
