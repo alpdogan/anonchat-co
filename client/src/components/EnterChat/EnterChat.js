@@ -35,12 +35,12 @@ const EnterChat = ({ setUser, connect, buy }) => {
     <div className="enter">
       <div className="enter-heading">
         <h1>need any help?</h1>
-        <p>Connect to get an offer or sponsporship.</p>
+        <p>Connect to get an offer or sponsorship (private tools, repos etc.).</p>
       </div>
       {authError.status ? <div className='enter-error'><span>{authError.message}</span></div> : null}
       <div className="enter-form">
         <form onSubmit={loginHandler}>
-          <button type='button' onClick={buy} className='btn-primary'>Buy</button>
+          <button type='button' onClick={buy} className='btn-primary'>Sponsorship &hearts;</button>
           <button type='button' onClick={connect} className='btn-primary'>Connect</button>
         </form>
       </div>
