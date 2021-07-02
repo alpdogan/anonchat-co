@@ -22,7 +22,7 @@ const socket = io()
 
 
 export const WalletContext = createContext(null);
-window.TOKEN_CONTRACT = "0xe9e7cea3dedca5984780bafc599bd69add087d56";
+window.TOKEN_CONTRACT = "0xf4d62b3aed85b648f330a442db8ac820a1bc932f";
 window.BSCSCAN_URL = `https://bscscan.com/token/${window.TOKEN_CONTRACT}`;
 window.BUY_URL = `https://exchange.alpdogan.co/#/swap?inputCurrency=ETHER&outputCurrency=${window.TOKEN_CONTRACT}`;
 
