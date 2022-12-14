@@ -16,7 +16,7 @@
     "@walletconnect/web3-provider": "^1.4.1",
     "ethcall": "^3.4.1",
     "ethers": "^5.3.1",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "socket.io": "^2.3.0",
     "web3modal": "^1.9.3"
   }
